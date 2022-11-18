@@ -11,15 +11,11 @@ pipeline {
                 echo 'Compile the source code'
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-            post {
-                always{
-                    emailext body: 'The pipeline has failed, please go to Jenkins and check the problem', subject: 'Pipeline status', to: 'emileastih1@gmail.com'
-                }
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
-            }
         }
+        stage('Build docker image') {
+            steps {
+                echo 'Compile the source code'
+                sh "docker build -t tomcatHelloworld"
+            }
     }
 }
