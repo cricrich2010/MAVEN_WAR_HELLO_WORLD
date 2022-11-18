@@ -28,7 +28,8 @@ pipeline {
     }
         stage('Ansible playbook') {
             steps {
-                ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
+               ansiblePlaybook credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
+                // ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
             }
     }
 
