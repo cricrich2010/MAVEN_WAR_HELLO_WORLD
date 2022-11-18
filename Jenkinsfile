@@ -14,8 +14,17 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                echo 'Compile the source code'
-                sh "docker build -t tomcathelloworld:0.1 ."
+                echo 'Build docker image'
+                sh "docker build -t christophecheret/tomcathelloworld:0.1 ."
+            }
+    }
+        stage('Push docker image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
+                sh "docker loging -u ${dockerUser} -p ${dockerPass}"
+            }
+                
+                sh "docker push christopchecheret/tomcathelloworld:0.1 ."
             }
     }
 }
