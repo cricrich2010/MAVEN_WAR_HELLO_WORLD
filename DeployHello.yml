@@ -5,3 +5,9 @@
   tasks:
     - name: "check cnx"
       ping:
+
+  tasks:
+    - name: Install python pip
+      yum:
+        name: python-pip
+        state: present
