@@ -30,7 +30,8 @@ pipeline {
             steps {
                //ansiblePlaybook credentialsId: 'ac56aa1a-89f1-475a-b2b5-bae2ef84e72c', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
                //ansiblePlaybook become: true, credentialsId: 'paraPW', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
-                ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
+                //ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
+                ansiblePlaybook become: true, credentialsId: 'paraPW', disableHostKeyChecking: true, installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
             }
     }
 
