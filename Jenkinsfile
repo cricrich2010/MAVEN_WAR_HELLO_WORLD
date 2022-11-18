@@ -32,7 +32,7 @@ pipeline {
                //ansiblePlaybook become: true, credentialsId: 'paraPW', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
                 //ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
                 //ansiblePlaybook become: true, credentialsId: 'paraPW', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
-                ansiblePlaybook become: true, credentialsId: 'paraPW', extras: '--become-password-file /tmp/bidonfile', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
+                ansiblePlaybook become: true, disableHostKeyChecking: true, credentialsId: 'paraPW', extras: '--become-password-file /tmp/bidonfile', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
             }
     }
 
