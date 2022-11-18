@@ -23,7 +23,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
                 sh "docker login -u christophecheret -p ${dockerPass}"
             }
-                sh "docker push christophecheret/tomcathelloworld:0.1 ."
+                sh "docker push christophecheret/tomcathelloworld:0.1"
             }
     }
 }
