@@ -1,5 +1,5 @@
 #Create MySQL Image for JSP Tutorial Application
-FROM tomcat
+FROM tomcat:8
 MAINTAINER chistophe.cheret@efrei.net
 
 RUN mkdir /usr/local/tomcat/webapps
