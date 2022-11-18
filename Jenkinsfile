@@ -15,7 +15,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 echo 'Compile the source code'
-                sh "docker build -t tomcatHelloworld ."
+                sh "docker build -t tomcatHelloworld:0.1 ."
             }
     }
 }
