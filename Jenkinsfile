@@ -26,5 +26,11 @@ pipeline {
                 sh "docker push christophecheret/tomcathelloworld:0.1"
             }
     }
+        stage('Ansible playbook') {
+            steps {
+                ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
+            }
+    }
+
 }
 }
