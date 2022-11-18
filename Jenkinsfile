@@ -9,7 +9,7 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compile the source code'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn clean package -DskipTests"
             }
         }
         stage('Build docker image') {
@@ -28,7 +28,6 @@ pipeline {
     }
         stage('Ansible playbook') {
             steps {
-               
                ansiblePlaybook credentialsId: 'ac56aa1a-89f1-475a-b2b5-bae2ef84e72c', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml'
                 // ansiblePlaybook become: true, colorized: true, credentialsId: 'AnsibleSSH', installation: 'ansible', inventory: 'Inventory.txt', playbook: 'DeployHello.yml', sudoUser: null
             }
