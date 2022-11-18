@@ -1,0 +1,7 @@
+---
+- name: "check client status"
+  hosts: all
+
+  tasks:
+    - name: "check cnx"
+      ping:
